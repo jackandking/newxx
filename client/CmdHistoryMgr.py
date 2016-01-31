@@ -42,6 +42,8 @@ class HistoryFile:
     else:
       logging.warning("ignore None when appending.")
     return self
+  def filename(self):
+    return self.m_filename
 
 
 class LocalHistoryFile(HistoryFile):
@@ -173,6 +175,18 @@ class CmdHistoryMgr:
       logging.warning("nothing downloaded.")
     #self.m_AHF.get_last_tag_by_host(socket.gethostname())
     return self
+
+  def download_per_year(self, a_year):
+    #try:
+      params = urllib.urlencode({'tag':a_year})
+      f = urllib2.urlopen("https://"+_selfmgr_server_+"/cmdhistorymgr/download_per_year", params)
+      l_ret=f.read()
+      logging.info("Download %d lines succeeded...",l_ret.count('\n'))
+      l_file=HistoryFile(os.path.join(self.m_home,'allhistory_%s'%a_year))
+      l_file.append(l_ret)
+      logging.info("Persist to %s",l_file.filename())
+    #except:
+      logging.error("Execption when download")
 
   def upload(self, a_block):
     l_ret='ko'
@@ -337,6 +351,10 @@ class _UT(unittest.TestCase):
     def test_sync(self):
       l_c=CmdHistoryMgr()
       l_c.sync()
+
+    def test_download(self, a_year=2015):
+      l_c=CmdHistoryMgr()
+      l_c.download_per_year(a_year)
 
 def main():
     unittest.main(verbosity=2)
