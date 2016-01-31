@@ -1,0 +1,9 @@
+deploy:
+  provider: openshift
+  user: jackandking@gmail.com
+  password:
+    secure: XLoBorvD5+a2YtdGgEWzsHXDBI94X/mi6pJM5df/aSgv1Ph2uPnL7RUVC8/ZphkwYruIZbSiZxupbLIBgq/2Scr9TryvhwlcfMbBZ66o4QMANLMJdezCN04N/l+BnC+AfRHInn8y7VbOlQOzlxRzCU2riGw96cJalpZnJqr2BzmvFgHnHPw/zKkXqCIalmPnDNS1XtbOHowizndLsZBWkZA2IEOzBZDyxfxqmXNCA64mfHm4gnWn/oMy7hZN5W8VgHCQ+/iZIqW+fliBx6dUauPiKSXtavjyS1Os1SE1bHkKOJdHf1EAvNpGbhn+qX1wCwggPJ8++mXdZormX7DwOVjdSqMHMnUtyw4bK+qJJ5L9ht+fpgihDoBqvLEkiisF5bvlNb5mR/nVXS/vJlK2C5T4iUAl6TywyGWiPOeYiCiLPBnITx/MPkK3T65sm9f/5re5/f0eGGfDxyK42ZSBYR91FhaXXc7C3QeL6FaYXF1JZPrxG3MuOTihbUefz4sESAHDh4M0uYJIp7pHKig/tZwn63bJ68mLpeYrAp1qIqk8IREmuobwVgCcEzKn1dkByxI0uUUf0zUG5jWMRVpzYQVWJfp5DnEXlDkxewtpM+AmPQkbMdqrWDun19GFNg/oIi5NCmrHCpopdCyiZF68sZ/y7vmokdGKlsTpfYxEaPU=
+  app: newxx
+  domain: 'aws-us-east-1'
+  on:
+    repo: jackandking/newxx
